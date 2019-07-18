@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>CarterService</id>
+    <version>0.0.1</version>
+    <title>Carter template for web services</title>
+    <description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</description>
+    <authors>Jaxel Rojas</authors>
+    <owners>Jaxel Rojas</owners>
+    <projectUrl>https://github.com/Jaxelr/CarterService</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Initial Version</releaseNotes>
+    <copyright>2019</copyright>
+    <tags>template;carter;webservice;</tags>
+    <language>en-US</language>
+    <license type="expression">MIT</license>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="Content\**" exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\.vscode\**" target="content"/>
+  </files>
+</package>

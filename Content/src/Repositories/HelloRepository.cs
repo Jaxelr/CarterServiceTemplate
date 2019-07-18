@@ -1,0 +1,7 @@
+﻿namespace CarterService.Repository
+{
+    public class HelloRepository : IHelloRepository
+    {
+        public string SayHello(string name) => $"Hello world, your name is {name}";
+    }
+}

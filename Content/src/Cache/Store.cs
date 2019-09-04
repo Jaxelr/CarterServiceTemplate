@@ -45,7 +45,7 @@ namespace CarterService.Cache
                 string realKey = Key.Create<T>(key);
 
                 var options = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromSeconds(props.CacheTimespan))
+                    .SetAbsoluteExpiration(TimeSpan.FromSeconds(props.CacheTimespan))
                     .SetSize(props.CacheMaxSize);
 
                 cache.Set(realKey, res, options);

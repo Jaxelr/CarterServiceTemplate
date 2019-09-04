@@ -19,7 +19,7 @@ namespace CarterService
 
         private readonly AppSettings settings = new AppSettings();
 
-        private const string ServiceName = "Carter Service Example";
+        private const string ServiceName = "CarterService";
 
         public Startup(IHostingEnvironment env)
         {
@@ -45,7 +45,6 @@ namespace CarterService
             Configuration.GetSection(nameof(AppSettings)).Bind(settings);
 
             services.AddSingleton(settings); //AppSettings type
-            services.AddSingleton(settings.Cache); //CacheConfig type
             services.AddSingleton<Store>();
 
             services.AddSingleton<IHelloRepository>(new HelloRepository());
@@ -62,8 +61,8 @@ namespace CarterService
 
             app.UseSwaggerUI(opt =>
             {
-                opt.RoutePrefix = RouteDefinition.RoutePrefix;
-                opt.SwaggerEndpoint(RouteDefinition.SwaggerEndpoint, ServiceName);
+                opt.RoutePrefix = appSettings.RouteDefinition.RoutePrefix;
+                opt.SwaggerEndpoint(appSettings.RouteDefinition.SwaggerEndpoint, ServiceName);
             });
         }
 

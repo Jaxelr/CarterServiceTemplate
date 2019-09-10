@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using CarterService.Entities;
 using Carter;
+using CarterService.Entities;
 
 namespace CarterService.Modules
 {

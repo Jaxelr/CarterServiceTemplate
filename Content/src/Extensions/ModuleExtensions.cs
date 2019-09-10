@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CarterService.Cache;
 using Carter.ModelBinding;
 using Carter.Response;
+using CarterService.Cache;
 using Microsoft.AspNetCore.Http;
 
 namespace CarterService.Extensions
@@ -52,7 +52,7 @@ namespace CarterService.Extensions
             try
             {
                 var response = store.GetOrSetCache(key, () => handler());
-        
+
                 if (response == null)
                 {
                     res.StatusCode = 204;

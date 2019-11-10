@@ -4,7 +4,7 @@ namespace CarterService.Cache
 {
     public class Key
     {
-        public static string FieldSeparator = "::";
+        public static string FieldSeparator = ":";
 
         /// <summary>
         /// Create a string key based on the typeof<T> and the field sent

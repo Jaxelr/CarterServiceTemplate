@@ -51,7 +51,7 @@ namespace CarterService
 
             services.AddCarter(options =>
             {
-                options = GetOptions(settings);
+                options.OpenApi = GetOpenApiOptions(settings);
             });
 
             services.AddMemoryCache();
@@ -70,15 +70,12 @@ namespace CarterService
             app.UseEndpoints(builder => builder.MapCarter());
         }
 
-        private CarterOptions GetOptions(AppSettings settings) =>
-            new CarterOptions()
-            {
-                OpenApi = new OpenApiOptions()
-                {
-                    DocumentTitle = ServiceName,
-                    ServerUrls = settings.ServerUrls,
-                    Securities = new Dictionary<string, OpenApiSecurity>()
-                }
-            };
+        private OpenApiOptions GetOpenApiOptions(AppSettings settings) =>
+        new OpenApiOptions()
+        {
+            DocumentTitle = ServiceName,
+            ServerUrls = settings.ServerUrls,
+            Securities = new Dictionary<string, OpenApiSecurity>()
+        };
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CarterService;
@@ -11,20 +12,27 @@ using Xunit;
 
 namespace Api.Test.Unit
 {
-    public class HelloModuleFixture
+    public class HelloModuleFixture : IDisposable
     {
         private readonly HttpClient client;
+        private readonly TestServer server;
 
         public HelloModuleFixture()
         {
             var featureCollection = new FeatureCollection();
             featureCollection.Set<IServerAddressesFeature>(new ServerAddressesFeature());
 
-            var server = new TestServer(WebHost.CreateDefaultBuilder()
+            server = new TestServer(WebHost.CreateDefaultBuilder()
                     .UseStartup<Startup>(), featureCollection
             );
 
             client = server.CreateClient();
+        }
+
+        public void Dispose()
+        {
+            server?.Dispose();
+            client?.Dispose();
         }
 
         [Fact]

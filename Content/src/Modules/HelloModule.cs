@@ -10,9 +10,9 @@ namespace CarterService.Modules
     {
         public HelloModule(IHelloRepository repository, Store store)
         {
-            Get<GetHello>("/Hello/{name}", (req, res, routeData) =>
+            Get<GetHello>("/Hello/{name}", (req, res) =>
             {
-                string name = routeData.As<string>("name");
+                string name = req.RouteValues.As<string>("name");
 
                 return res.ExecHandler(name, store, () => repository.SayHello(name));
             });

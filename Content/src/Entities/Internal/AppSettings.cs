@@ -8,5 +8,6 @@
         public CacheConfig Cache { get; set; }
 
         public RouteDefinition RouteDefinition { get; set; }
+        public string[] ServerUrls { get; set; }
     }
 }

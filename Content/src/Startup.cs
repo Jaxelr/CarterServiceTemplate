@@ -14,7 +14,7 @@ namespace CarterService
 {
     public class Startup
     {
-        private IConfiguration Configuration { get; set; }
+        private IConfiguration Configuration { get; }
 
         private readonly AppSettings settings;
 

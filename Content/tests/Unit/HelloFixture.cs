@@ -39,14 +39,14 @@ namespace Api.Test.Unit
         public async Task Hello_module_get_hello_world()
         {
             //Arrange
-            string name = "myUser";
+            const string name = "myUser";
 
             //Act
-            var res = await client.GetAsync($"/hello/{name}");
+            var res = await client.GetAsync($"/hello/{name}").ConfigureAwait(false);
 
             //Assert
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);
-            Assert.Contains(name, await res.Content.ReadAsStringAsync());
+            Assert.Contains(name, await res.Content.ReadAsStringAsync().ConfigureAwait(false));
         }
     }
 }

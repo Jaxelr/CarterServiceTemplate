@@ -8,7 +8,7 @@ namespace CarterService.Modules
     {
         public MainModule(AppSettings appSettings)
         {
-            Get("/", (req, res) =>
+            Get("/", (_, res) =>
             {
                 res.Redirect(appSettings.RouteDefinition.RoutePrefix);
 

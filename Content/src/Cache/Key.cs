@@ -2,7 +2,7 @@
 
 namespace CarterService.Cache
 {
-    public class Key
+    public static class Key
     {
         public static string FieldSeparator = ":";
 

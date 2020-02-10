@@ -54,6 +54,8 @@ namespace CarterService
                 options.OpenApi = GetOpenApiOptions(settings);
             });
 
+            services.AddLogging();
+
             services.AddMemoryCache();
         }
 

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
+using Microsoft.Extensions.Logging;
 
 namespace CarterService
 {
@@ -25,7 +26,7 @@ namespace CarterService
             var builder = new ConfigurationBuilder()
               .SetBasePath(env.ContentRootPath)
               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
               .AddEnvironmentVariables();
 
             Configuration = builder.Build();
@@ -54,7 +55,12 @@ namespace CarterService
                 options.OpenApi = GetOpenApiOptions(settings);
             });
 
-            services.AddLogging();
+            services.AddLogging(opt =>
+            {
+                opt.AddConsole();
+                opt.AddDebug();
+                opt.AddConfiguration(Configuration.GetSection("Logging"));
+            });
 
             services.AddMemoryCache();
         }

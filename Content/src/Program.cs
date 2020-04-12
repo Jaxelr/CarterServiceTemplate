@@ -1,7 +1,6 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace CarterService
 {
@@ -17,13 +16,7 @@ namespace CarterService
                         .UseHealthChecks("/healthcheck")
                         .UseStartup<Startup>()
                         .UseIISIntegration();
-                    })
-                    .ConfigureLogging(logging =>
-                    {
-                        logging.ClearProviders();
-                        logging.AddConsole();
-                    })
-                    .Build();
+                    }).Build();
 
             host.Run();
         }

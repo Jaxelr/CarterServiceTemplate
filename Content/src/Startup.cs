@@ -45,7 +45,7 @@ namespace CarterService
                     ValueTask<IHealthCheckResult>(HealthCheckResult.Healthy("Ok")));
             });
 
-            services.AddSingleton(settings); //AppSettings type
+            services.AddSingleton(settings); //typeof(AppSettings)
             services.AddSingleton<Store>();
 
             services.AddSingleton<IHelloRepository>(new HelloRepository());

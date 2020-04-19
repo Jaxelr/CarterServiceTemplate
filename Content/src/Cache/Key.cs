@@ -27,7 +27,7 @@ namespace CarterService.Cache
         /// </summary>
         /// <param name="type"></param>
         /// <param name="fields"></param>
-        /// <returns></returns>
+        /// <returns>A string with the type, and all fields concatenated delimited by the field separator</returns>
         public static string Create(Type type, params string[] fields)
         {
             if (type == null)
@@ -56,7 +56,7 @@ namespace CarterService.Cache
         /// </summary>
         /// <param name="type"></param>
         /// <param name="field"></param>
-        /// <returns></returns>
+        /// <returns>A string with the type and field concatenated delimited by the field separator</returns>
         public static string Create(Type type, string field)
         {
             if (type == null)

@@ -19,6 +19,6 @@
     </packageTypes>
   </metadata>
   <files>
-    <file src="Content\**" exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\.vscode\**" target="content"/>
+    <file src="Content\**" exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\.vscode\**;**\*.gitkeep" target="content"/>
   </files>
 </package>

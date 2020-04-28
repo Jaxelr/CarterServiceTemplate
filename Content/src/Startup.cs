@@ -24,6 +24,8 @@ namespace CarterService
 
         private const string ServiceName = "CarterService";
 
+        private string Policy => "DefaultPolicy";
+
         public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -45,6 +47,19 @@ namespace CarterService
             services.AddSingleton<Store>();
 
             services.AddSingleton<IHelloRepository>(new HelloRepository());
+
+            //Change Cors as needed.
+            services.AddCors(options =>
+            {
+                options.AddPolicy(Policy,
+                builder =>
+                {
+                    builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
 
             services.AddCarter(options => options.OpenApi = GetOpenApiOptions(settings));
 

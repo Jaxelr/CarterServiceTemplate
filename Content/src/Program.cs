@@ -13,7 +13,6 @@ namespace CarterService
                     {
                         webBuilder
                         .UseContentRoot(Directory.GetCurrentDirectory())
-                        .UseHealthChecks("/healthcheck")
                         .UseStartup<Startup>()
                         .UseIISIntegration();
                     }).Build();

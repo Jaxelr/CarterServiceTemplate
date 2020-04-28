@@ -5,11 +5,14 @@ using CarterService.Cache;
 using CarterService.Entities;
 using CarterService.Repository;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 
 namespace CarterService
 {
@@ -38,22 +41,12 @@ namespace CarterService
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //HealthChecks
-            services.AddHealthChecks(checks =>
-            {
-                checks.AddValueTaskCheck("HTTP Endpoint", () => new
-                    ValueTask<IHealthCheckResult>(HealthCheckResult.Healthy("Ok")));
-            });
-
             services.AddSingleton(settings); //typeof(AppSettings)
             services.AddSingleton<Store>();
 
             services.AddSingleton<IHelloRepository>(new HelloRepository());
 
-            services.AddCarter(options =>
-            {
-                options.OpenApi = GetOpenApiOptions(settings);
-            });
+            services.AddCarter(options => options.OpenApi = GetOpenApiOptions(settings));
 
             services.AddLogging(opt =>
             {
@@ -61,6 +54,9 @@ namespace CarterService
                 opt.AddDebug();
                 opt.AddConfiguration(Configuration.GetSection("Logging"));
             });
+
+            //HealthChecks
+            services.AddHealthChecks();
 
             services.AddMemoryCache();
         }
@@ -75,6 +71,11 @@ namespace CarterService
                 opt.SwaggerEndpoint(appSettings.RouteDefinition.SwaggerEndpoint, ServiceName);
             });
 
+            app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
+            {
+                ResponseWriter = WriteResponse
+            });
+
             app.UseEndpoints(builder => builder.MapCarter());
         }
 
@@ -85,5 +86,18 @@ namespace CarterService
             ServerUrls = settings.ServerUrls,
             Securities = new Dictionary<string, OpenApiSecurity>()
         };
+
+        private static Task WriteResponse(HttpContext context, HealthReport report)
+        {
+            context.Response.ContentType = "application/json";
+
+            var json = new JObject(
+                        new JProperty("statusCode", report.Status),
+                        new JProperty("status", report.Status.ToString()),
+                        new JProperty("timelapsed", report.TotalDuration)
+                );
+
+            return context.Response.WriteAsync(json.ToString(Newtonsoft.Json.Formatting.Indented));
+        }
     }
 }

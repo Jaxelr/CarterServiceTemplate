@@ -65,6 +65,7 @@ namespace CarterService
 
             services.AddLogging(opt =>
             {
+                opt.ClearProviders();
                 opt.AddConsole();
                 opt.AddDebug();
                 opt.AddConfiguration(Configuration.GetSection("Logging"));

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Carter.ModelBinding;
 using Carter.Response;
 using CarterService.Cache;
+using CarterService.Entities;
 using Microsoft.AspNetCore.Http;
 
 namespace CarterService.Extensions
@@ -34,7 +35,8 @@ namespace CarterService.Extensions
             catch (Exception ex)
             {
                 res.StatusCode = 500;
-                await res.Negotiate(ex.Message).ConfigureAwait(false);
+                await res.Negotiate(new FailedResponse(ex))
+                    .ConfigureAwait(false);
             }
         }
 
@@ -65,7 +67,8 @@ namespace CarterService.Extensions
             catch (Exception ex)
             {
                 res.StatusCode = 500;
-                await res.Negotiate(ex.Message).ConfigureAwait(false);
+                await res.Negotiate(new FailedResponse(ex))
+                    .ConfigureAwait(false);
             }
         }
 
@@ -96,7 +99,8 @@ namespace CarterService.Extensions
             catch (Exception ex)
             {
                 res.StatusCode = 500;
-                await res.Negotiate(ex.Message).ConfigureAwait(false);
+                await res.Negotiate(new FailedResponse(ex))
+                    .ConfigureAwait(false);
             }
         }
 
@@ -136,7 +140,8 @@ namespace CarterService.Extensions
             catch (Exception ex)
             {
                 res.StatusCode = 500;
-                await res.Negotiate(ex.Message).ConfigureAwait(false);
+                await res.Negotiate(new FailedResponse(ex))
+                    .ConfigureAwait(false);
             }
         }
 
@@ -179,7 +184,8 @@ namespace CarterService.Extensions
             catch (Exception ex)
             {
                 res.StatusCode = 500;
-                await res.Negotiate(ex.Message).ConfigureAwait(false);
+                await res.Negotiate(new FailedResponse(ex))
+                    .ConfigureAwait(false);
             }
         }
     }

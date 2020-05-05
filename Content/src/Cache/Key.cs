@@ -1,4 +1,5 @@
 ﻿using System;
+using CarterService.Extensions;
 
 namespace CarterService.Cache
 {
@@ -67,6 +68,11 @@ namespace CarterService.Cache
             if (field == null)
             {
                 throw new ArgumentNullException($"Argument {nameof(field)} cannot be null");
+            }
+
+            if (type.IsIEnumerable() || type.IsArray)
+            {
+                return $"{type.Name}{FieldSeparator}{type.GetAnyElementType()}{FieldSeparator}{field}";
             }
 
             return $"{type.Name}{FieldSeparator}{field}";

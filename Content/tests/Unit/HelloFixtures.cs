@@ -42,7 +42,8 @@ namespace Api.Test.Unit
             const string name = "myUser";
 
             //Act
-            var res = await client.GetAsync($"/hello/{name}").ConfigureAwait(false);
+            var res = await client.GetAsync($"/hello/{name}")
+                .ConfigureAwait(false);
 
             //Assert
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);

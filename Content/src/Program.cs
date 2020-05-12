@@ -1,6 +1,9 @@
 using System.IO;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+
+[assembly: InternalsVisibleTo("CarterServiceTests")]
 
 namespace CarterService
 {

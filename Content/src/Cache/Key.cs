@@ -72,7 +72,7 @@ namespace CarterService.Cache
 
             if (type.IsIEnumerable() || type.IsArray)
             {
-                return $"{type.Name}{FieldSeparator}{type.GetAnyElementType()}{FieldSeparator}{field}";
+                return $"{type.Name}{FieldSeparator}{type.GetAnyElementType().Name}{FieldSeparator}{field}";
             }
 
             return $"{type.Name}{FieldSeparator}{field}";

@@ -41,7 +41,16 @@ namespace CarterService.Cache
                 throw new ArgumentNullException($"Argument {nameof(fields)} cannot be null");
             }
 
-            string urn = type.Name;
+            string urn;
+
+            if (type.IsIEnumerable() || type.IsArray)
+            {
+                urn = $"{type.Name}{FieldSeparator}{type.GetAnyElementType().Name}";
+            }
+            else
+            {
+                urn = type.Name;
+            }
 
             foreach (string field in fields)
             {

@@ -10,14 +10,14 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.TestHost;
 using Xunit;
 
-namespace Api.Test.Unit
+namespace CarterService.Tests.Unit
 {
-    public class HelloModuleFixture : IDisposable
+    public class HelloModuleFixtures : IDisposable
     {
         private readonly HttpClient client;
         private readonly TestServer server;
 
-        public HelloModuleFixture()
+        public HelloModuleFixtures()
         {
             var featureCollection = new FeatureCollection();
             featureCollection.Set<IServerAddressesFeature>(new ServerAddressesFeature());

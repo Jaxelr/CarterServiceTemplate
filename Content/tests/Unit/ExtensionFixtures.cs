@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CarterService.Extensions;
 using Xunit;
 
-namespace CarterServiceTests.Unit
+namespace CarterService.Tests.Unit
 {
     public class ExtensionFixtures
     {

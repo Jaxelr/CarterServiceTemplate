@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-[assembly: InternalsVisibleTo("CarterServiceTests")]
+[assembly: InternalsVisibleTo("CarterService.Tests")]
 
 namespace CarterService
 {

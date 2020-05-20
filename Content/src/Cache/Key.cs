@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CarterService.Extensions;
 
 namespace CarterService.Cache
@@ -12,7 +14,7 @@ namespace CarterService.Cache
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="field"></param>
-        /// <returns></returns>
+        /// <returns>A string with the type and all fields concatenated delimited by the field separator</returns>
         public static string Create<T>(string field) => Create(typeof(T), field);
 
         /// <summary>
@@ -20,16 +22,24 @@ namespace CarterService.Cache
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="fields"></param>
-        /// <returns></returns>
-        public static string Create<T>(params string[] fields) => Create(typeof(T), fields);
+        /// <returns>A string with the type and all fields concatenated delimited by the field separator</returns>
+        public static string Create<T>(params string[] fields) => Create(typeof(T), fields.Select(x => x));
+
+        /// <summary>
+        /// Create  string key based on the type and the fields sent
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="fields"></param>
+        /// <returns>A string with the type and all fields concatenated delimited by the field separator</returns>
+        public static string Create(Type type, params string[] fields) => Create(type, fields.Select(x => x));
 
         /// <summary>
         /// Create a string key based on the type and the fields sent
         /// </summary>
         /// <param name="type"></param>
         /// <param name="fields"></param>
-        /// <returns>A string with the type, and all fields concatenated delimited by the field separator</returns>
-        public static string Create(Type type, params string[] fields)
+        /// <returns>A string with the type and all fields concatenated delimited by the field separator</returns>
+        public static string Create(Type type, IEnumerable<string> fields)
         {
             if (type == null)
             {

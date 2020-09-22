@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Carter;
-using CarterService.Cache;
+using Carter.Cache;
 using CarterService.Entities;
 using CarterService.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -44,7 +44,6 @@ namespace CarterService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(settings); //typeof(AppSettings)
-            services.AddSingleton<Store>();
 
             services.AddSingleton<IHelloRepository>(new HelloRepository());
 
@@ -61,6 +60,7 @@ namespace CarterService
                 });
             });
 
+            services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize));
             services.AddCarter(options => options.OpenApi = GetOpenApiOptions(settings));
 
             services.AddLogging(opt =>
@@ -73,8 +73,6 @@ namespace CarterService
 
             //HealthChecks
             services.AddHealthChecks();
-
-            services.AddMemoryCache();
         }
 
         public void Configure(IApplicationBuilder app, AppSettings appSettings)
@@ -94,6 +92,7 @@ namespace CarterService
                 ResponseWriter = WriteResponse
             });
 
+            app.UseCarterCaching();
             app.UseEndpoints(builder => builder.MapCarter());
         }
 

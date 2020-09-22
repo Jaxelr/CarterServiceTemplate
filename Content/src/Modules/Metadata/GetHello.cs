@@ -1,4 +1,5 @@
 ﻿using Carter.OpenApi;
+using CarterService.Entities;
 
 namespace CarterService.Modules
 {
@@ -14,6 +15,12 @@ namespace CarterService.Modules
                 Code = 200,
                 Description = $"A message with hello world",
                 Response = typeof(string)
+            },
+            new RouteMetaDataResponse
+            {
+                Code = 500,
+                Description = "A response if an internal server error is detected",
+                Response = typeof(FailedResponse),
             }
         };
 

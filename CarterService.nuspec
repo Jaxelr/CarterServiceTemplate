@@ -6,11 +6,10 @@
     <title>Carter template for web services</title>
     <description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</description>
     <authors>Jaxel Rojas</authors>
-    <owners>Jaxel Rojas</owners>
-    <projectUrl>https://github.com/Jaxelr/CarterService</projectUrl>
+    <projectUrl>https://github.com/Jaxelr/CarterServiceTemplate</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>Initial Version</releaseNotes>
-    <copyright>2019</copyright>
+    <copyright>2020</copyright>
     <tags>template;carter;webservice;</tags>
     <language>en-US</language>
     <license type="expression">MIT</license>

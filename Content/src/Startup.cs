@@ -1,18 +1,16 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Carter;
 using Carter.Cache;
 using CarterService.Entities;
 using CarterService.Repository;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
 
 namespace CarterService
 {
@@ -72,7 +70,8 @@ namespace CarterService
             });
 
             //HealthChecks
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                    .AddCheck(settings.HealthDefinition.Name, () => HealthCheckResult.Healthy(settings.HealthDefinition.HealthyMessage), tags: settings.HealthDefinition.Tags);
         }
 
         public void Configure(IApplicationBuilder app, AppSettings appSettings)
@@ -87,9 +86,11 @@ namespace CarterService
                 opt.SwaggerEndpoint(appSettings.RouteDefinition.SwaggerEndpoint, ServiceName);
             });
 
-            app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
+            app.UseHealthChecks(settings.HealthDefinition.Endpoint, new HealthCheckOptions()
             {
-                ResponseWriter = WriteResponse
+                AllowCachingResponses = false,
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
             app.UseCarterCaching();
@@ -103,18 +104,5 @@ namespace CarterService
             ServerUrls = settings.ServerUrls,
             Securities = new Dictionary<string, OpenApiSecurity>()
         };
-
-        private static Task WriteResponse(HttpContext context, HealthReport report)
-        {
-            context.Response.ContentType = "application/json";
-
-            var json = new JObject(
-                        new JProperty("statusCode", report.Status),
-                        new JProperty("status", report.Status.ToString()),
-                        new JProperty("timelapsed", report.TotalDuration)
-                );
-
-            return context.Response.WriteAsync(json.ToString(Newtonsoft.Json.Formatting.Indented));
-        }
     }
 }

@@ -4,9 +4,10 @@ Dotnet template library for web services using the Carter library.
 
 ## Builds
 
-| Provider |
-| :---: |
-| [![Build status][appveyor-build-img]][appveyor-build] |
+| Provider | Status |
+| :---: | :---: |
+| Appveyor | [![Build status][appveyor-build-img]][appveyor-build] |
+| Github | ![.NET Core][github-build] |
 
 ## Packages
 
@@ -48,3 +49,4 @@ This template targets dotnet core 3.1. The following libraries are included as p
 [mit]: https://github.com/Jaxelr/CarterServiceTemplate/blob/master/LICENSE
 [appveyor-build-img]: https://ci.appveyor.com/api/projects/status/2xr17krulb7vppm7/branch/master?svg=true
 [appveyor-build]: https://ci.appveyor.com/project/Jaxelr/carterservicetemplate/branch/master
+[github-build]: https://github.com/Jaxelr/CarterServiceTemplate/workflows/.NET%20Core/badge.svg?branch=master

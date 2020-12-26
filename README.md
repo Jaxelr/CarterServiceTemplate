@@ -37,7 +37,7 @@ To uninstall simply execute:
 
 ### Dependencies
 
-This template targets dotnet core 3.1. The following libraries are included as part of the projects:
+This template targets dotnet 5.0. The following libraries are included as part of the projects:
 
 * [Carter](https://github.com/CarterCommunity/Carter)
 * [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)

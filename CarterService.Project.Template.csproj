@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <PackageId>CarterServiceTemplate</PackageId>
-    <PackageCopyright>2020</PackageCopyright>
+    <Copyright>2020</Copyright>
     <Title>Carter Service Template</Title>
     <Authors>Jaxel Rojas</Authors>
     <Description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</Description>
@@ -18,7 +18,7 @@
     <ContentTargetFolders>Content</ContentTargetFolders>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <NoWarn>NU5128</NoWarn>
-    <PackageReleaseNotes>Initial Version</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to net5.0</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

@@ -13,7 +13,7 @@ namespace CarterService.Modules
             new RouteMetaDataResponse
             {
                 Code = 200,
-                Description = $"A message with hello world",
+                Description = "A message with hello world",
                 Response = typeof(string)
             },
             new RouteMetaDataResponse

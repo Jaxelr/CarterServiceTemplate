@@ -32,6 +32,7 @@ namespace CarterService.Tests.Unit
         {
             server?.Dispose();
             client?.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         [Fact]
@@ -41,8 +42,7 @@ namespace CarterService.Tests.Unit
             const string name = "myUser";
 
             //Act
-            var res = await client.GetAsync($"/hello/{name}")
-                .ConfigureAwait(false);
+            var res = await client.GetAsync($"/hello/{name}");
 
             //Assert
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);

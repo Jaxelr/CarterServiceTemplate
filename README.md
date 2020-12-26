@@ -50,7 +50,7 @@ This template targets dotnet core 3.1. The following libraries are included as p
 [appveyor-build-img]: https://ci.appveyor.com/api/projects/status/2xr17krulb7vppm7/branch/master?svg=true
 [appveyor-build]: https://ci.appveyor.com/project/Jaxelr/carterservicetemplate/branch/master
 [github-build]: https://github.com/Jaxelr/CarterServiceTemplate/workflows/.NET%20Core/badge.svg?branch=master
-[nuget-img]: https://img.shields.io/myget/carterservicetemplate/v/CarterServiceTemplate.svg
-[nuget]: https://www.myget.org/feed/carterservicetemplate/package/nuget/CarterServiceTemplate
+[nuget-img]: https://img.shields.io/nuget/v/CarterServiceTemplate.svg
+[nuget]: https://www.nuget.org/packages/CarterServiceTemplate/
 [myget-img]: https://img.shields.io/myget/carterservicetemplate/v/CarterServiceTemplate.svg
 [myget]: https://www.myget.org/feed/carterservicetemplate/package/nuget/CarterServiceTemplate

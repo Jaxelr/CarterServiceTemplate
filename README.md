@@ -7,7 +7,7 @@ Dotnet template library for web services using the Carter library.
 | Provider | Status |
 | :---: | :---: |
 | Appveyor | [![Build status][appveyor-build-img]][appveyor-build] |
-| Github | ![.NET Core][github-build] |
+| Github | ![.NET][github-build] |
 
 ## Packages
 
@@ -49,7 +49,7 @@ This template targets dotnet 5.0. The following libraries are included as part o
 [mit]: https://github.com/Jaxelr/CarterServiceTemplate/blob/master/LICENSE
 [appveyor-build-img]: https://ci.appveyor.com/api/projects/status/2xr17krulb7vppm7/branch/master?svg=true
 [appveyor-build]: https://ci.appveyor.com/project/Jaxelr/carterservicetemplate/branch/master
-[github-build]: https://github.com/Jaxelr/CarterServiceTemplate/workflows/.NET%20Core/badge.svg?branch=master
+[github-build]: https://github.com/Jaxelr/CarterServiceTemplate/workflows/.NET/badge.svg?branch=master
 [nuget-img]: https://img.shields.io/nuget/v/CarterServiceTemplate.svg
 [nuget]: https://www.nuget.org/packages/CarterServiceTemplate/
 [myget-img]: https://img.shields.io/myget/carterservicetemplate/v/CarterServiceTemplate.svg

@@ -46,7 +46,7 @@ namespace CarterService.Tests.Unit
 
             //Assert
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);
-            Assert.Contains(name, await res.Content.ReadAsStringAsync().ConfigureAwait(false));
+            Assert.Contains(name, await res.Content.ReadAsStringAsync());
         }
     }
 }

@@ -98,7 +98,7 @@ namespace CarterService
         }
 
         private static OpenApiOptions GetOpenApiOptions(AppSettings settings) =>
-        new OpenApiOptions()
+        new()
         {
             DocumentTitle = ServiceName,
             ServerUrls = settings.ServerUrls,

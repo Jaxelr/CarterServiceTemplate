@@ -5,9 +5,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <PackageId>CarterServiceTemplate</PackageId>
-    <Copyright>2020</Copyright>
+    <Copyright>2021</Copyright>
     <Title>Carter Service Template</Title>
     <Authors>Jaxel Rojas</Authors>
     <Description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</Description>
@@ -18,7 +18,7 @@
     <ContentTargetFolders>Content</ContentTargetFolders>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <NoWarn>NU5128</NoWarn>
-    <PackageReleaseNotes>Upgrade to net5.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Added dockerfile to template build</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

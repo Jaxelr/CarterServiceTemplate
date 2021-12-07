@@ -2,11 +2,9 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting.Server.Features;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.TestHost;
+using CarterService.Repository;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace CarterService.Tests.Unit
@@ -14,15 +12,14 @@ namespace CarterService.Tests.Unit
     public class HelloModuleFixtures : IDisposable
     {
         private readonly HttpClient client;
-        private readonly TestServer server;
 
         public HelloModuleFixtures()
         {
-            var featureCollection = new FeatureCollection();
-            featureCollection.Set<IServerAddressesFeature>(new ServerAddressesFeature());
-
-            server = new TestServer(WebHost.CreateDefaultBuilder()
-                    .UseStartup<Startup>(), featureCollection
+            var server = new WebApplicationFactory<Program>()
+            .WithWebHostBuilder(builder => builder.ConfigureServices
+            (
+                /// Mock, if needed
+                services => services.AddSingleton<IHelloRepository, HelloRepository>())
             );
 
             client = server.CreateClient();
@@ -30,7 +27,6 @@ namespace CarterService.Tests.Unit
 
         public void Dispose()
         {
-            server?.Dispose();
             client?.Dispose();
             GC.SuppressFinalize(this);
         }

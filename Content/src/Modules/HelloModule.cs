@@ -4,20 +4,19 @@ using CarterService.Entities;
 using CarterService.Extensions;
 using CarterService.Repository;
 
-namespace CarterService.Modules
+namespace CarterService.Modules;
+
+public class HelloModule : CarterModule
 {
-    public class HelloModule : CarterModule
+    public HelloModule(IHelloRepository repository, AppSettings settings)
     {
-        public HelloModule(IHelloRepository repository, AppSettings settings)
+        int cacheTimespan = settings.Cache.CacheTimespan;
+
+        Get<GetHello>("/Hello/{name}", (req, res) =>
         {
-            int cacheTimespan = settings.Cache.CacheTimespan;
+            string name = req.RouteValues.As<string>("name");
 
-            Get<GetHello>("/Hello/{name}", (req, res) =>
-            {
-                string name = req.RouteValues.As<string>("name");
-
-                return res.ExecHandler(cacheTimespan, () => repository.SayHello(name));
-            });
-        }
+            return res.ExecHandler(cacheTimespan, () => repository.SayHello(name));
+        });
     }
 }

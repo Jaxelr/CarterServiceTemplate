@@ -1,7 +1,6 @@
-﻿namespace CarterService.Repository
+﻿namespace CarterService.Repository;
+
+public interface IHelloRepository
 {
-    public interface IHelloRepository
-    {
-        string SayHello(string name);
-    }
+    string SayHello(string name);
 }

@@ -1,15 +1,15 @@
 ﻿using Carter.OpenApi;
 using CarterService.Entities;
 
-namespace CarterService.Modules
-{
-    public class GetHello : RouteMetaData
-    {
-        private const string TagInfo = "Hello";
-        private const string DescriptionInfo = "Returns a message with hello world";
+namespace CarterService.Modules;
 
-        public override RouteMetaDataResponse[] Responses { get; } =
-        {
+public class GetHello : RouteMetaData
+{
+    private const string TagInfo = "Hello";
+    private const string DescriptionInfo = "Returns a message with hello world";
+
+    public override RouteMetaDataResponse[] Responses { get; } =
+    {
             new RouteMetaDataResponse
             {
                 Code = 200,
@@ -24,10 +24,9 @@ namespace CarterService.Modules
             }
         };
 
-        public override string Description => DescriptionInfo;
+    public override string Description => DescriptionInfo;
 
-        public override string Tag => TagInfo;
+    public override string Tag => TagInfo;
 
-        public override string OperationId => nameof(GetHello);
-    }
+    public override string OperationId => nameof(GetHello);
 }

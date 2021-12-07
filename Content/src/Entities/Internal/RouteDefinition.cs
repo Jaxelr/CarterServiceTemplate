@@ -1,8 +1,7 @@
-﻿namespace CarterService.Entities
+﻿namespace CarterService.Entities;
+
+public class RouteDefinition
 {
-    public class RouteDefinition
-    {
-        public string RoutePrefix { get; set; }
-        public string SwaggerEndpoint { get; set; }
-    }
+    public string RoutePrefix { get; set; }
+    public string SwaggerEndpoint { get; set; }
 }

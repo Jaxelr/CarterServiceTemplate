@@ -29,21 +29,29 @@ Then you can freely use it by executing the following dotnet command:
 
 `dotnet new carterws -o MyCarterWs`
 
-### Uninstall
+### Version target
 
-To uninstall simply execute:
+This template targets the following dotnet versions:
 
-`dotnet new -u "CarterServiceTemplate"`
+| net version | template version |
+| -- | -- |
+| 6.0 | latest |
+| 5.0 | 0.0.3 |
+| 3.1 | 0.0.1 |
 
-### Dependencies
-
-This template targets dotnet 5.0. The following libraries are included as part of the projects:
+The following libraries are included as part of the projects:
 
 * [Carter](https://github.com/CarterCommunity/Carter)
 * [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
 * [Carter.Cache](https://github.com/Jaxelr/Carter.Cache)
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
 * [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
+
+### Uninstall
+
+To uninstall simply execute:
+
+`dotnet new -u "CarterServiceTemplate"`
 
 [mit-img]: http://img.shields.io/badge/License-MIT-blue.svg
 [mit]: https://github.com/Jaxelr/CarterServiceTemplate/blob/master/LICENSE

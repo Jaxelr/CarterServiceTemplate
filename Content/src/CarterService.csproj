@@ -10,17 +10,18 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="5.0.1" />
-    <PackageReference Include="Carter.Cache" Version="0.0.6" />
+    <PackageReference Include="Carter.Cache" Version="0.0.7" />
     <PackageReference Include="Insight.Database" Version="6.3.9" />
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
-    <PackageReference Include="Carter" Version="5.2.0" />
+    <PackageReference Include="Carter" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="SwashBuckle.AspNetCore.SwaggerUi" Version="6.2.3" />
   </ItemGroup>
 
@@ -39,6 +40,13 @@
   <ItemGroup>
     <Folder Include="Entities\Models\" />
     <Folder Include="Entities\Operations\" />
+    <Folder Include="Modules\Metadata\" />
     <Folder Include="Validation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>CarterService.Tests</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 </Project>

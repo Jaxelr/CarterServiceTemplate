@@ -1,22 +1,23 @@
 ﻿using Carter;
-using Carter.Request;
+using Carter.OpenApi;
 using CarterService.Entities;
 using CarterService.Extensions;
 using CarterService.Repository;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 
 namespace CarterService.Modules;
 
-public class HelloModule : CarterModule
+public class HelloModule : ICarterModule
 {
-    public HelloModule(IHelloRepository repository, AppSettings settings)
-    {
-        int cacheTimespan = settings.Cache.CacheTimespan;
-
-        Get<GetHello>("/Hello/{name}", (req, res) =>
-        {
-            string name = req.RouteValues.As<string>("name");
-
-            return res.ExecHandler(cacheTimespan, () => repository.SayHello(name));
-        });
-    }
+    public void AddRoutes(IEndpointRouteBuilder app) =>
+        app.MapGet("/Hello/{name}",
+            (HttpContext ctx, string name, AppSettings settings, IHelloRepository repository) =>
+            ctx.ExecHandler(settings.Cache.CacheTimespan, () => repository.SayHello(name)))
+            .Produces<string>(200)
+            .Produces<FailedResponse>(500)
+            .WithName("GetHello")
+            .WithTags("Hello")
+            .IncludeInOpenApi();
 }

@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Carter;
 using Carter.Cache;
+using Carter.OpenApi;
 using CarterService.Entities;
 using CarterService.Repository;
 using HealthChecks.UI.Client;
@@ -13,8 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
-[assembly: InternalsVisibleTo("CarterService.Tests")]
 const string ServiceName = "Carter Service";
 const string Policy = "DefaultPolicy";
 
@@ -44,8 +43,32 @@ builder.Services.AddLogging(opt =>
     opt.AddConfiguration(builder.Configuration.GetSection("Logging"));
 });
 
+//Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Description = ServiceName,
+        Version = "v1"
+    });
+
+    options.DocInclusionPredicate((_, description) =>
+    {
+        foreach (object metaData in description.ActionDescriptor.EndpointMetadata)
+        {
+            if (metaData is IIncludeOpenApi)
+            {
+                return true;
+            }
+        }
+        return false;
+    });
+});
+
 builder.Services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize));
-builder.Services.AddCarter(options => options.OpenApi = GetOpenApiOptions(settings));
+builder.Services.AddCarter();
+
 builder.Services.AddSingleton(settings); //typeof(AppSettings)
 builder.Services.AddSingleton<IHelloRepository>(new HelloRepository());
 
@@ -70,12 +93,6 @@ if (builder.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseSwaggerUI(opt =>
-{
-    opt.RoutePrefix = settings.RouteDefinition.RoutePrefix;
-    opt.SwaggerEndpoint(settings.RouteDefinition.SwaggerEndpoint, ServiceName);
-});
-
 app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
 {
     AllowCachingResponses = false,
@@ -83,15 +100,10 @@ app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseCarterCaching();
 app.UseEndpoints(builder => builder.MapCarter());
 
 app.Run();
-
-static OpenApiOptions GetOpenApiOptions(AppSettings settings) =>
-        new()
-        {
-            DocumentTitle = ServiceName,
-            ServerUrls = settings.ServerUrls,
-            Securities = new Dictionary<string, OpenApiSecurity>()
-        };

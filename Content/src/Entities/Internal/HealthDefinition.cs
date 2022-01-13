@@ -1,9 +1,9 @@
 ﻿namespace CarterService.Entities;
 
-public class HealthDefinition
+public record HealthDefinition
 {
-    public string Endpoint { get; set; }
-    public string Name { get; set; }
-    public string HealthyMessage { get; set; }
-    public string[] Tags { get; set; }
+    public string Endpoint { get; init; }
+    public string Name { get; init; }
+    public string HealthyMessage { get; init; }
+    public string[] Tags { get; init; }
 }

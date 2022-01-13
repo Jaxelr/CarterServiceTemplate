@@ -1,6 +1,7 @@
 ﻿namespace CarterService.Entities;
 
-public class RouteDefinition
+public record RouteDefinition
 {
-    public string RouteSuffix { get; set; }
+    public string RouteSuffix { get; init; }
+    public string Version { get; init; }
 }

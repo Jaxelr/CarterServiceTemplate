@@ -50,7 +50,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Description = ServiceName,
-        Version = "v1"
+        Version = settings.RouteDefinition.Version
     });
 
     options.DocInclusionPredicate((_, description) =>

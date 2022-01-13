@@ -11,8 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 const string ServiceName = "Carter Service";
 const string Policy = "DefaultPolicy";
@@ -35,13 +35,10 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddLogging(opt =>
-{
-    opt.ClearProviders();
-    opt.AddConsole();
-    opt.AddDebug();
-    opt.AddConfiguration(builder.Configuration.GetSection("Logging"));
-});
+builder.Host.UseSerilog((ctx, services, config) =>
+    config
+    .ReadFrom.Configuration(ctx.Configuration)
+    .ReadFrom.Services(services));
 
 //Swagger
 builder.Services.AddEndpointsApiExplorer();

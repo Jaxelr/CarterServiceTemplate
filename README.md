@@ -44,6 +44,7 @@ The following libraries are included as part of the projects:
 * [Carter](https://github.com/CarterCommunity/Carter)
 * [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
 * [Carter.Cache](https://github.com/Jaxelr/Carter.Cache)
+* [Serilog](https://github.com/serilog/serilog-aspnetcore/)
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
 * [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 

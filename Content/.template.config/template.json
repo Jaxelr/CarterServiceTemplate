@@ -20,13 +20,27 @@
               "description": "If specified, skips the automatic restore of the project on create.",
               "defaultValue": "false"
         },
-        "includetest": {
+        "includeTest": {
               "type": "parameter",
               "datatype": "bool",
               "defaultValue": "true"
         }
       },
+      "primaryOutputs": [
+        {
+          "path": "tests/CarterService.Tests.csproj"
+        }
+      ],
       "postActions": [
+        {
+          "condition": "(includeTest)",
+          "description": "Add tests to solution.",
+           "args": {
+            "solutionFolder": "tests"
+          },
+          "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+          "continueOnError": true
+        },
         {
           "condition": "(!skipRestore)",
           "description": "Restore NuGet packages required by this project.",
@@ -35,10 +49,11 @@
           ],
           "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
           "continueOnError": true
-    }],
+        }
+     ],
     "sources":[{
       "modifiers": [{
-        "condition": "(!includetest)",
+        "condition": "(!includeTest)",
         "exclude": [ "tests/**/*"]
         }
       ]

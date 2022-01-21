@@ -1,4 +1,4 @@
-version: '0.0.2.{build}'
+version: '0.0.3.{build}'
 image: Visual Studio 2022
 branches:
   only:
@@ -12,7 +12,11 @@ nuget:
 before_build:
   - cmd: dotnet --version
 build_script:
+  - cmd: dotnet build Content/src/CarterService.csproj -v quiet
+  - cmd: dotnet build Content/tests/CarterService.Tests.csproj -v quiet
   - cmd: dotnet build . -v quiet
+test_script:
+  - cmd: dotnet test Content/tests/CarterService.Tests.csproj -v quiet
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:

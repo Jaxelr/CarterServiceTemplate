@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <PackageId>CarterServiceTemplate</PackageId>
-    <Copyright>2021</Copyright>
+    <Copyright>2022</Copyright>
     <Title>Carter Service Template</Title>
     <Authors>Jaxel Rojas</Authors>
     <Description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</Description>
@@ -18,7 +18,7 @@
     <ContentTargetFolders>Content</ContentTargetFolders>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <NoWarn>NU5128</NoWarn>
-    <PackageReleaseNotes>Added dockerfile to template build</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to target net 6.0</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

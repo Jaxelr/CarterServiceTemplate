@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep" />
+    <Content Include="Content\**" Exclude="**\*.Develop.sln;**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep" />
     <Compile Remove="**\*" />
   </ItemGroup>
 </Project>

@@ -17,14 +17,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Install dependencies
-      run: dotnet restore
     - name: Build Source
-      run: dotnet build Content/src/CarterService.csproj -v quiet --configuration Release --no-restore
+      run: dotnet build Content/src/CarterService.csproj -v quiet --configuration Release
     - name: Build Tests
-      run: dotnet build Content/src/CarterService.csproj -v quiet --configuration Release --no-restore
+      run: dotnet build Content/src/CarterService.csproj -v quiet --configuration Release
     - name: Test
-      run: dotnet test Content/tests/CarterService.Tests.csproj -v quiet --no-restore --verbosity quiet
+      run: dotnet test Content/tests/CarterService.Tests.csproj -v quiet --verbosity quiet
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1

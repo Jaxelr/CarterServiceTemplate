@@ -23,21 +23,23 @@
         "includeTest": {
               "type": "parameter",
               "datatype": "bool",
+              "description": "If specified, skip importing the test project included on the template.",
               "defaultValue": "true"
         }
       },
       "primaryOutputs": [
         {
+          "condition": "(includeTest)",
           "path": "tests/CarterService.Tests.csproj"
+        },
+        { 
+          "path": "CarterService.sln" 
         }
       ],
       "postActions": [
         {
           "condition": "(includeTest)",
           "description": "Add tests to solution.",
-           "args": {
-            "solutionFolder": "tests"
-          },
           "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
           "continueOnError": true
         },
@@ -57,8 +59,5 @@
         "exclude": [ "tests/**/*"]
         }
       ]
-    }],
-    "primaryOutputs": [
-      { "path": "CarterService.sln" }
-    ]
+    }]
 }

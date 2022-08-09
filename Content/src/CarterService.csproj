@@ -40,7 +40,6 @@
   <ItemGroup>
     <Folder Include="Entities\Models\" />
     <Folder Include="Entities\Operations\" />
-    <Folder Include="Modules\Metadata\" />
     <Folder Include="Validation\" />
   </ItemGroup>
 

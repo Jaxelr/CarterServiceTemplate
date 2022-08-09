@@ -1,4 +1,4 @@
-version: '0.0.4.{build}'
+version: '0.0.5.{build}'
 image: Visual Studio 2022
 branches:
   only:
@@ -8,7 +8,7 @@ init:
 configuration:
   - Release
 nuget:
-  disable_publish_on_pr: true  
+  disable_publish_on_pr: true
 before_build:
   - cmd: dotnet --version
 build_script:

@@ -5,9 +5,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <PackageId>CarterServiceTemplate</PackageId>
-    <Copyright>2022</Copyright>
+    <Copyright>2023</Copyright>
     <Title>Carter Service Template</Title>
     <Authors>Jaxel Rojas</Authors>
     <Description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</Description>

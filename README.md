@@ -35,9 +35,10 @@ This template targets the following dotnet versions:
 
 | net version | template version |
 | -- | -- |
-| 6.0 | latest |
-| 5.0 | 0.0.3 |
-| 3.1 | 0.0.1 |
+| 7.0 | latest |
+| 6.0 | 0.0.5  |
+| 5.0 | 0.0.3  |
+| 3.1 | 0.0.1  |
 
 The following libraries are included as part of the projects:
 

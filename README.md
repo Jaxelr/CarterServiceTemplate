@@ -19,11 +19,11 @@ Dotnet template library for web services using the Carter library.
 
 For installation via the dotnet install command:
 
-`dotnet new -i "CarterServiceTemplate::*"`
+`dotnet new install "CarterServiceTemplate::*"`
 
 For myget installations you can specify the source on the dotnet command:
 
-`dotnet new -i "CarterServiceTemplate::*" --nuget-source https://www.myget.org/F/carterservicetemplate/api/v3/index.json`
+`dotnet new install "CarterServiceTemplate::*" --nuget-source https://www.myget.org/F/carterservicetemplate/api/v3/index.json`
 
 Then you can freely use it by executing the following dotnet command:
 
@@ -53,7 +53,7 @@ The following libraries are included as part of the projects:
 
 To uninstall simply execute:
 
-`dotnet new -u "CarterServiceTemplate"`
+`dotnet new uninstall "CarterServiceTemplate"`
 
 [mit-img]: http://img.shields.io/badge/License-MIT-blue.svg
 [mit]: https://github.com/Jaxelr/CarterServiceTemplate/blob/master/LICENSE

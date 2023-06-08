@@ -16,6 +16,7 @@ public static class HttpContextExtensions
     /// <typeparam name="TOut"></typeparam>
     /// <param name="ctx">The http context to process</param>
     /// <param name="handler">A func handler that will be executed</param>
+    /// <returns name="Task">A Task object with the results</returns>
     public static async Task ExecHandler<TOut>(this HttpContext ctx, Func<TOut> handler)
     {
         try
@@ -73,6 +74,7 @@ public static class HttpContextExtensions
     /// <typeparam name="TOut"></typeparam>
     /// <param name="ctx">The http context to process</param>
     /// <param name="handler">A func handler that will be validated and executed</param>
+    /// <returns name="Task">A Task object with the results</returns>
     public static async Task ExecHandler<TIn, TOut>(this HttpContext ctx, TIn @in, Func<TIn, TOut> handler)
     {
         try

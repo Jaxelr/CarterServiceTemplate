@@ -9,11 +9,11 @@ using Xunit;
 
 namespace CarterService.Tests.Unit;
 
-public class HelloModuleFixtures : IDisposable
+public class HelloTests : IDisposable
 {
     private readonly HttpClient client;
 
-    public HelloModuleFixtures()
+    public HelloTests()
     {
         var server = new WebApplicationFactory<Program>()
         .WithWebHostBuilder(builder => builder.ConfigureServices

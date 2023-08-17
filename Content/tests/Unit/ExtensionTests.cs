@@ -5,7 +5,7 @@ using Xunit;
 
 namespace CarterService.Tests.Unit;
 
-public class ExtensionFixtures
+public class ExtensionTests
 {
     [Theory]
     [InlineData(typeof(string[]), typeof(string))]

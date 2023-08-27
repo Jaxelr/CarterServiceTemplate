@@ -3,6 +3,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <AssemblyName>CarterService</AssemblyName>
     <OutputType>Exe</OutputType>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".editorconfig" />

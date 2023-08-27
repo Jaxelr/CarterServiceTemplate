@@ -2,7 +2,7 @@
 
 namespace CarterService.Entities;
 
-public class FailedResponse
+public record FailedResponse
 {
     public FailedResponse(Exception ex)
     {

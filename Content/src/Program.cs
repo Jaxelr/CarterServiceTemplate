@@ -67,7 +67,7 @@ builder.Services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize)
 builder.Services.AddCarter();
 
 builder.Services.AddSingleton(settings); //typeof(AppSettings)
-builder.Services.AddSingleton<IHelloRepository>(new HelloRepository());
+builder.Services.AddSingleton<IHelloRepository, HelloRepository>();
 
 //HealthChecks
 builder.Services.AddHealthChecks()
@@ -86,6 +86,10 @@ if (builder.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
+else
+{
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
 app.UseRouting();
@@ -103,4 +107,4 @@ app.UseSwaggerUI();
 app.UseCarterCaching();
 app.MapCarter();
 
-app.Run();
+await app.RunAsync();

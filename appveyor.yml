@@ -1,4 +1,4 @@
-version: '0.0.7.{build}'
+version: '0.0.8.{build}'
 image: Visual Studio 2022
 branches:
   only:
@@ -9,6 +9,10 @@ configuration:
   - Release
 nuget:
   disable_publish_on_pr: true
+install:
+- ps: |
+    Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -UseBasicParsing -OutFile "$env:temp\dotnet-install.ps1"
+    & $env:temp\dotnet-install.ps1 -Architecture x64 -Version '8.0.100' -InstallDir "$env:ProgramFiles\dotnet"
 before_build:
   - cmd: dotnet --version
 build_script:

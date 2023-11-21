@@ -35,7 +35,8 @@ This template targets the following dotnet versions:
 
 | net version | template version |
 | -- | -- |
-| 7.0 | latest |
+| 8.0 | latest |
+| 7.0 | 0.0.7  |
 | 6.0 | 0.0.5  |
 | 5.0 | 0.0.3  |
 | 3.1 | 0.0.1  |

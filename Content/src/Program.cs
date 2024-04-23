@@ -1,7 +1,7 @@
 using Carter;
 using Carter.Cache;
-using Carter.OpenApi;
 using CarterService.Entities;
+using CarterService.Extensions;
 using CarterService.Repository;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
@@ -11,10 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Serilog;
 
-const string ServiceName = "Carter Service";
 const string Policy = "DefaultPolicy";
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,28 +38,7 @@ builder.Host.UseSerilog((ctx, services, config) =>
     .ReadFrom.Configuration(ctx.Configuration)
     .ReadFrom.Services(services));
 
-//Swagger
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Description = ServiceName,
-        Version = settings.RouteDefinition.Version
-    });
-
-    options.DocInclusionPredicate((_, description) =>
-    {
-        foreach (object metaData in description.ActionDescriptor.EndpointMetadata)
-        {
-            if (metaData is IIncludeOpenApi)
-            {
-                return true;
-            }
-        }
-        return false;
-    });
-});
+builder.AddSwagger(settings);
 
 builder.Services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize));
 builder.Services.AddCarter();

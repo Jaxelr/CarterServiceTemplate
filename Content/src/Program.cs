@@ -3,13 +3,10 @@ using Carter.Cache;
 using CarterService.Entities;
 using CarterService.Extensions;
 using CarterService.Repository;
-using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -46,14 +43,7 @@ builder.Services.AddCarter();
 builder.Services.AddSingleton(settings); //typeof(AppSettings)
 builder.Services.AddSingleton<IHelloRepository, HelloRepository>();
 
-//HealthChecks
-builder.Services.AddHealthChecks()
-   .AddCheck
-   (
-        settings.HealthDefinition.Name,
-        () => HealthCheckResult.Healthy(settings.HealthDefinition.HealthyMessage),
-        tags: settings.HealthDefinition.Tags
-   );
+builder.AddHealthChecks(settings);
 
 var app = builder.Build();
 
@@ -71,15 +61,9 @@ else
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
-{
-    AllowCachingResponses = false,
-    Predicate = _ => true,
-    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-});
+app.UseHealthChecks();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+app.MapSwagger();
 
 app.UseCarterCaching();
 app.MapCarter();

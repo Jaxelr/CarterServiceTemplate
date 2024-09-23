@@ -2,6 +2,7 @@
 using CarterService.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 
 namespace CarterService.Extensions;
@@ -34,6 +35,19 @@ public static class WebApplicationBuilderExtensions
                 return false;
             });
         });
+
+        return builder;
+    }
+
+    internal static WebApplicationBuilder AddHealthChecks(this WebApplicationBuilder builder, AppSettings settings)
+    {
+        builder.Services.AddHealthChecks()
+        .AddCheck
+        (
+            settings.HealthDefinition.Name,
+            () => HealthCheckResult.Healthy(settings.HealthDefinition.HealthyMessage),
+            tags: settings.HealthDefinition.Tags
+        );
 
         return builder;
     }

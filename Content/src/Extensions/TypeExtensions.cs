@@ -10,14 +10,14 @@ public static class TypeExtensions
     /// <summary>
     /// Check if the type inherits from IEnumerable
     /// </summary>
-    /// <param name="type"></param>
+    /// <param name="type">The type to check.</param>
     /// <returns>A boolean that indicates if the type inherits from IEnumerable</returns>
     internal static bool IsIEnumerable(this Type type) => type.GetInterface(nameof(IEnumerable)) != null;
 
     /// <summary>
     /// Returns the element from the underlying Collection
     /// </summary>
-    /// <param name="type"></param>
+    /// <param name="type">The type to inspect.</param>
     /// <returns>Gets the type from the element of the </returns>
     internal static Type GetAnyElementType(this Type type)
     {

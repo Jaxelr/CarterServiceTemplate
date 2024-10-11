@@ -13,10 +13,10 @@ public static class HttpContextExtensions
     /// <summary>
     /// Encapsulate execution of handler with the corresponding validation logic
     /// </summary>
-    /// <typeparam name="TOut"></typeparam>
-    /// <param name="ctx">The http context to process</param>
-    /// <param name="handler">A func handler that will be executed</param>
-    /// <returns name="Task">A Task object with the results</returns>
+    /// <typeparam name="TOut">The type to return.</typeparam>
+    /// <param name="ctx">The http context to process.</param>
+    /// <param name="handler">A func handler that will be executed.</param>
+    /// <returns name="Task">A Task object with the results.</returns>
     public static async Task ExecHandler<TOut>(this HttpContext ctx, Func<TOut> handler)
     {
         try
@@ -40,7 +40,7 @@ public static class HttpContextExtensions
     /// <summary>
     /// Encapsulate execution of handler with the validation logic and storage on cache using the key provided
     /// </summary>
-    /// <typeparam name="TOut"></typeparam>
+    /// <typeparam name="TOut">The type to return.</typeparam>
     /// <param name="ctx">The http context to process</param>
     /// <param name="cacheTimespan">Time alive for the store to keep</param>
     /// <param name="handler">A func handler that will be executed</param>
@@ -70,8 +70,8 @@ public static class HttpContextExtensions
     /// <summary>
     /// Encapsulate execution of handler with the validation logic while binding and validating the http request
     /// </summary>
-    /// <typeparam name="TIn"></typeparam>
-    /// <typeparam name="TOut"></typeparam>
+    /// <typeparam name="TIn">The type to validate.</typeparam>
+    /// <typeparam name="TOut">The type to return.</typeparam>
     /// <param name="ctx">The http context to process</param>
     /// <param name="handler">A func handler that will be validated and executed</param>
     /// <returns name="Task">A Task object with the results</returns>
@@ -111,8 +111,8 @@ public static class HttpContextExtensions
     /// Encapsulate execution of handler with the validation logic while binding,
     /// validating the http request and storing on cache using the key provided
     /// </summary>
-    /// <typeparam name="TIn"></typeparam>
-    /// <typeparam name="TOut"></typeparam>
+    /// <typeparam name="TIn">The type to validate.</typeparam>
+    /// <typeparam name="TOut">The type to return.</typeparam>
     /// <param name="ctx">The http context to process</param>
     /// <param name="cacheTimespan">Time alive for the store to keep</param>
     /// <param name="handler">A func handler that will be validated and executed</param>

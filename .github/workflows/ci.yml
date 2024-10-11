@@ -17,14 +17,12 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
+    - name: Format Code
+      run: dotnet format analyzers Content/CarterService.sln --verbosity diagnostic
     - name: Build Source
       run: dotnet build Content/src/CarterService.csproj --configuration Release
     - name: Build Tests
       run: dotnet build Content/tests/CarterService.Tests.csproj --configuration Release
-    - name: Format Source
-      run: dotnet format Content/src/CarterService.csproj --verbosity diagnostic
-    - name: Format Tests
-      run: dotnet format Content/tests/CarterService.Tests.csproj --verbosity diagnostic
     - name: Test
       run: dotnet test Content/tests/CarterService.Tests.csproj --configuration Release
 env:

@@ -1,5 +1,5 @@
 ﻿using Carter.OpenApi;
-using CarterService.Entities;
+using CarterService.Entities.Internal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;

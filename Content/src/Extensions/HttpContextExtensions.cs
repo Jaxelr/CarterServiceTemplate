@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Carter.Cache;
 using Carter.ModelBinding;
 using Carter.Response;
-using CarterService.Entities;
+using CarterService.Entities.Internal;
 using Microsoft.AspNetCore.Http;
 
 namespace CarterService.Extensions;

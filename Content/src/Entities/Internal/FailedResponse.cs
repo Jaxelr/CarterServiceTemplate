@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CarterService.Entities;
+namespace CarterService.Entities.Internal;
 
 public record FailedResponse
 {
@@ -9,7 +9,7 @@ public record FailedResponse
         Message = ex.Message;
 #if DEBUG
         StackTrace = ex.StackTrace ?? string.Empty;
-        Source = ex.Source ??  string.Empty;
+        Source = ex.Source ?? string.Empty;
         TargetMethod = ex.TargetSite?.Name ?? string.Empty;
 #endif
     }

@@ -1,8 +1,8 @@
 ﻿using Carter;
 using Carter.OpenApi;
-using CarterService.Entities;
+using CarterService.Entities.Internal;
 using CarterService.Extensions;
-using CarterService.Repository;
+using CarterService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;

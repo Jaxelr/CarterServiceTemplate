@@ -1,8 +1,8 @@
 using Carter;
 using Carter.Cache;
-using CarterService.Entities;
+using CarterService.Entities.Internal;
 using CarterService.Extensions;
-using CarterService.Repository;
+using CarterService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

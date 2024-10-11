@@ -1,4 +1,4 @@
-﻿namespace CarterService.Entities;
+﻿namespace CarterService.Entities.Internal;
 
 public record CacheConfig
 {

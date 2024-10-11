@@ -1,4 +1,4 @@
-﻿namespace CarterService.Entities;
+﻿namespace CarterService.Entities.Internal;
 
 /// <summary>
 /// This is obtained from the appsettings.json on Startup

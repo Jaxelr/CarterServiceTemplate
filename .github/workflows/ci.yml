@@ -20,11 +20,11 @@ jobs:
     - name: Build Source
       run: dotnet build Content/src/CarterService.csproj --configuration Release
     - name: Build Tests
-      run: dotnet build Content/src/CarterService.Tests.csproj --configuration Release
+      run: dotnet build Content/tests/CarterService.Tests.csproj --configuration Release
     - name: Format Source
       run: dotnet format Content/src/CarterService.csproj --verify-no-changes --verbosity diagnostic
     - name: Format Tests
-      run: dotnet format Content/src/CarterService.Tests.csproj --verify-no-changes --verbosity diagnostic
+      run: dotnet format Content/tests/CarterService.Tests.csproj --verify-no-changes --verbosity diagnostic
     - name: Test
       run: dotnet test Content/tests/CarterService.Tests.csproj -v quiet --configuration Release
 env:

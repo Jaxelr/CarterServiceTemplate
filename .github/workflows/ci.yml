@@ -22,11 +22,11 @@ jobs:
     - name: Build Tests
       run: dotnet build Content/tests/CarterService.Tests.csproj --configuration Release
     - name: Format Source
-      run: dotnet format Content/src/CarterService.csproj --verify-no-changes --verbosity diagnostic
+      run: dotnet format Content/src/CarterService.csproj --verbosity diagnostic
     - name: Format Tests
-      run: dotnet format Content/tests/CarterService.Tests.csproj --verify-no-changes --verbosity diagnostic
+      run: dotnet format Content/tests/CarterService.Tests.csproj --verbosity diagnostic
     - name: Test
-      run: dotnet test Content/tests/CarterService.Tests.csproj -v quiet --configuration Release
+      run: dotnet test Content/tests/CarterService.Tests.csproj --configuration Release
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1

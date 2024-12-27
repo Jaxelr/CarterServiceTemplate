@@ -5,10 +5,8 @@
     <OutputType>Exe</OutputType>
     <LangVersion>Latest</LangVersion>
     <Nullable>enable</Nullable>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
-  <ItemGroup>
-    <None Remove=".editorconfig" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
@@ -26,10 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettings.Development.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="appsettings.json">
+    <None Update="appsettings*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="web.config">
@@ -38,14 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Models\" />
-    <Folder Include="Entities\Operations\" />
-    <Folder Include="Validation\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-      <_Parameter1>CarterService.Tests</_Parameter1>
-    </AssemblyAttribute>
+    <InternalsVisibleTo Include="CarterService.Tests"/>
   </ItemGroup>
 </Project>

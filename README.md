@@ -7,8 +7,7 @@ Dotnet template library for web services using the Carter library.
 | Provider | Status |
 | :---: | :---: |
 | Appveyor | [![Build status][appveyor-build-img]][appveyor-build] |
-| Github | ![.NET][github-build] |
-
+| Github | [![.NET][github-build-img]][github-build] |
 ## Packages
 
 | NuGet (Stable) | MyGet (Prerelease) |
@@ -61,8 +60,10 @@ To uninstall simply execute:
 [mit]: https://github.com/Jaxelr/CarterServiceTemplate/blob/master/LICENSE
 [appveyor-build-img]: https://ci.appveyor.com/api/projects/status/2xr17krulb7vppm7/branch/master?svg=true
 [appveyor-build]: https://ci.appveyor.com/project/Jaxelr/carterservicetemplate/branch/master
-[github-build]: https://github.com/Jaxelr/CarterServiceTemplate/workflows/.NET/badge.svg?branch=master
+[github-build-img]: https://github.com/Jaxelr/CarterServiceTemplate/actions/workflows/ci.yml/badge.svg
+[github-build]: https://github.com/Jaxelr/CarterServiceTemplate/actions/workflows/ci.yml
 [nuget-img]: https://img.shields.io/nuget/v/CarterServiceTemplate.svg
 [nuget]: https://www.nuget.org/packages/CarterServiceTemplate/
 [myget-img]: https://img.shields.io/myget/carterservicetemplate/v/CarterServiceTemplate.svg
 [myget]: https://www.myget.org/feed/carterservicetemplate/package/nuget/CarterServiceTemplate
+

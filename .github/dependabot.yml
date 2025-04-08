@@ -1,17 +1,9 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/Content/src" #CarterService.csproj
-    schedule:
-      interval: "weekly"
-      day: "saturday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/Content/tests" #CarterService.Tests.csproj
+    directories:
+        - "/Content/src" #CarterService.csproj
+        - "/Content/tests" #CarterService.Tests.csproj
     schedule:
       interval: "weekly"
       day: "saturday"

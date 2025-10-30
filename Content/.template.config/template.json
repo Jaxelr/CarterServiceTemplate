@@ -23,7 +23,7 @@
         "includeTest": {
               "type": "parameter",
               "datatype": "bool",
-              "description": "If specified, skip importing the test project included on the template.",
+              "description": "If specified, includes the test project in the template.",
               "defaultValue": "true"
         }
       },

@@ -28,21 +28,11 @@
         }
       },
       "primaryOutputs": [
-        {
-          "condition": "(includeTest)",
-          "path": "tests/CarterService.Tests.csproj"
-        },
         { 
           "path": "CarterService.sln" 
         }
       ],
       "postActions": [
-        {
-          "condition": "(includeTest)",
-          "description": "Add tests to solution.",
-          "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
-          "continueOnError": true
-        },
         {
           "condition": "(!skipRestore)",
           "description": "Restore NuGet packages required by this project.",

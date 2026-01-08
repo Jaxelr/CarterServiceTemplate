@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
-    <Version>0.0.9</Version>
+    <Version>0.1.0</Version>
     <PackageId>CarterServiceTemplate</PackageId>
-    <Copyright>2023</Copyright>
+    <Copyright>2026</Copyright>
     <Title>Carter Service Template</Title>
     <Authors>Jaxel Rojas</Authors>
     <Description>Carter template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</Description>
@@ -18,7 +18,7 @@
     <ContentTargetFolders>Content</ContentTargetFolders>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <NoWarn>NU5128</NoWarn>
-    <PackageReleaseNotes>Upgrade to target net 8.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to target net 9.0</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>

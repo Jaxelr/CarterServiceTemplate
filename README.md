@@ -33,13 +33,14 @@ Then you can freely use it by executing the following dotnet command:
 This template targets the following dotnet versions:
 
 | net version | template version |
-| -- | -- |
-| 9.0 | latest |
-| 8.0 | 0.0.9  |
-| 7.0 | 0.0.7  |
-| 6.0 | 0.0.5  |
-| 5.0 | 0.0.3  |
-| 3.1 | 0.0.1  |
+| ---- | ------ |
+| 10.0 | latest |
+| 9.0  | 0.1.1  |
+| 8.0  | 0.0.9  |
+| 7.0  | 0.0.7  |
+| 6.0  | 0.0.5  |
+| 5.0  | 0.0.3  |
+| 3.1  | 0.0.1  |
 
 The following libraries are included as part of the projects:
 

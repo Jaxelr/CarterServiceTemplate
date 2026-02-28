@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
-    <PackageReference Include="Insight.Database" Version="8.0.5" />
+    <PackageReference Include="Insight.Database" Version="8.0.6" />
     <PackageReference Include="Carter" Version="10.0.0" />
     <PackageReference Include="Carter.Cache" Version="0.3.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />

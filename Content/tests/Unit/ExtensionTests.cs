@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using CarterService.Extensions;
-using Xunit;
 
 namespace CarterService.Tests.Unit;
 

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using CarterService.Repositories;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using Xunit;
 
 namespace CarterService.Tests.Unit;
 
@@ -38,10 +37,10 @@ public class HelloTests : IDisposable
         const string name = "myUser";
 
         //Act
-        var res = await client.GetAsync($"/hello/{name}");
+        var res = await client.GetAsync($"/hello/{name}", TestContext.Current.CancellationToken);
 
         //Assert
         Assert.Equal(HttpStatusCode.OK, res.StatusCode);
-        Assert.Contains(name, await res.Content.ReadAsStringAsync());
+        Assert.Contains(name, await res.Content.ReadAsStringAsync(TestContext.Current.CancellationToken));
     }
 }

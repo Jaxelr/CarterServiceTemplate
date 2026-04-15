@@ -1,15 +1,17 @@
-﻿using HealthChecks.UI.Client;
+﻿using CarterService.Entities.Internal;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Scalar.AspNetCore;
 
 namespace CarterService.Extensions
 {
     public static class WebApplicationExtensions
     {
-        internal static WebApplication MapSwagger(this WebApplication app)
+        internal static WebApplication MapOpenApi(this WebApplication app, AppSettings settings)
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            app.MapOpenApi($"{settings.RouteDefinition.Resource}/{settings.RouteDefinition.Version}.json");
+            app.MapScalarApiReference($"{settings.RouteDefinition.Resource}");
 
             return app;
         }

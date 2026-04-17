@@ -35,7 +35,7 @@ builder.Host.UseSerilog((ctx, services, config) =>
     .ReadFrom.Configuration(ctx.Configuration)
     .ReadFrom.Services(services));
 
-builder.AddSwagger(settings);
+builder.AddOpenApi(settings);
 
 builder.Services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize));
 builder.Services.AddCarter();
@@ -63,7 +63,7 @@ app.UseRouting();
 
 app.UseHealthChecks();
 
-app.MapSwagger();
+app.MapOpenApi(settings);
 
 app.UseCarterCaching();
 app.MapCarter();

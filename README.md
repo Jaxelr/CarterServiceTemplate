@@ -49,7 +49,7 @@ The following libraries are included as part of the projects:
 * [Carter.Cache](https://github.com/Jaxelr/Carter.Cache)
 * [Serilog](https://github.com/serilog/serilog-aspnetcore/)
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
-* [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
+* [Scalar.AspNetCore](https://github.com/scalar/scalar)
 
 ### Uninstall
 

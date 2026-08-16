@@ -12,7 +12,7 @@ nuget:
 install:
 - ps: |
     Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -UseBasicParsing -OutFile "$env:temp\dotnet-install.ps1"
-    & $env:temp\dotnet-install.ps1 -Architecture x64 -Version '10.0.110' -InstallDir "$env:ProgramFiles\dotnet"
+    & $env:temp\dotnet-install.ps1 -Architecture x64 -Version '10.0.400' -InstallDir "$env:ProgramFiles\dotnet"
 before_build:
   - cmd: dotnet --version
 build_script:
@@ -20,7 +20,7 @@ build_script:
   - cmd: dotnet build Content/tests/CarterService.Tests.csproj -v quiet
   - cmd: dotnet build . -v quiet
 test_script:
-  - cmd: dotnet test Content/tests/CarterService.Tests.csproj -v quiet
+  - cmd: cd Content && dotnet test --project tests\CarterService.Tests.csproj --configuration Release --verbosity quiet
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:

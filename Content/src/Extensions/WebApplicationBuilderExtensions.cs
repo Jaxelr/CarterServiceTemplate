@@ -1,15 +1,44 @@
-﻿using CarterService.Entities.Internal;
+﻿using Carter;
+using Carter.Cache;
+using CarterService.Entities.Internal;
+using CarterService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi;
-
 
 namespace CarterService.Extensions;
 
 public static class WebApplicationBuilderExtensions
 {
     private const string ServiceName = "Carter Service";
+
+    /// <summary>
+    /// Registers application services and the CORS policy.
+    /// </summary>
+    internal static WebApplicationBuilder AddApplicationServices(
+        this WebApplicationBuilder builder,
+        AppSettings settings,
+        string corsPolicy)
+    {
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(corsPolicy, policy =>
+            {
+                policy
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
+        });
+
+        builder.Services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize));
+        builder.Services.AddCarter();
+        builder.Services.AddSingleton(settings); //typeof(AppSettings)
+        builder.Services.AddSingleton<IHelloRepository, HelloRepository>();
+
+        return builder;
+    }
 
     /// <summary>
     /// Configures OpenAPI document generation.

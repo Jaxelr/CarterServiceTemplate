@@ -2,11 +2,9 @@ using Carter;
 using Carter.Cache;
 using CarterService.Entities.Internal;
 using CarterService.Extensions;
-using CarterService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -18,17 +16,7 @@ var settings = new AppSettings();
 
 builder.Configuration.GetSection(nameof(AppSettings)).Bind(settings);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(Policy,
-    builder =>
-    {
-        builder
-        .AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader();
-    });
-});
+builder.AddApplicationServices(settings, Policy);
 
 builder.Host.UseSerilog((ctx, services, config) =>
     config
@@ -36,13 +24,6 @@ builder.Host.UseSerilog((ctx, services, config) =>
     .ReadFrom.Services(services));
 
 builder.AddOpenApi(settings);
-
-builder.Services.AddCarterCaching(new CachingOption(settings.Cache.CacheMaxSize));
-builder.Services.AddCarter();
-
-builder.Services.AddSingleton(settings); //typeof(AppSettings)
-builder.Services.AddSingleton<IHelloRepository, HelloRepository>();
-
 builder.AddHealthChecks(settings);
 
 var app = builder.Build();

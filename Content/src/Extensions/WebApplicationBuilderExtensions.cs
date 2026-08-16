@@ -11,6 +11,9 @@ public static class WebApplicationBuilderExtensions
 {
     private const string ServiceName = "Carter Service";
 
+    /// <summary>
+    /// Configures OpenAPI document generation.
+    /// </summary>
     internal static WebApplicationBuilder AddOpenApi(this WebApplicationBuilder builder, AppSettings settings)
     {
         builder.Services.AddOpenApi(settings.RouteDefinition.Version, options =>
@@ -29,6 +32,9 @@ public static class WebApplicationBuilderExtensions
         return builder;
     }
 
+    /// <summary>
+    /// Registers the configured health check.
+    /// </summary>
     internal static WebApplicationBuilder AddHealthChecks(this WebApplicationBuilder builder, AppSettings settings)
     {
         builder.Services.AddHealthChecks()

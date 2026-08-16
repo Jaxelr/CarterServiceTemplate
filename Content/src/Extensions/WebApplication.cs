@@ -8,6 +8,9 @@ namespace CarterService.Extensions
 {
     public static class WebApplicationExtensions
     {
+        /// <summary>
+        /// Maps the OpenAPI document and reference UI.
+        /// </summary>
         internal static WebApplication MapOpenApi(this WebApplication app, AppSettings settings)
         {
             app.MapOpenApi($"{settings.RouteDefinition.Resource}/{settings.RouteDefinition.Version}.json");
@@ -16,6 +19,9 @@ namespace CarterService.Extensions
             return app;
         }
 
+        /// <summary>
+        /// Adds the health check endpoint to the pipeline.
+        /// </summary>
         internal static WebApplication UseHealthChecks(this WebApplication app)
         {
             app.UseHealthChecks("/healthcheck", new HealthCheckOptions()

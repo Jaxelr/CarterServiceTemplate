@@ -147,6 +147,9 @@ public static class HttpContextExtensions
         }
     }
 
+    /// <summary>
+    /// Writes a negotiated response with the specified status code.
+    /// </summary>
     private static async Task NegotiateResponse<T>(this HttpContext ctx, T response, int statusCode)
     {
         ctx.Response.StatusCode = statusCode;

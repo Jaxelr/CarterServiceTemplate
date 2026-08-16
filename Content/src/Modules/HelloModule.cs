@@ -11,6 +11,9 @@ namespace CarterService.Modules;
 
 public class HelloModule : ICarterModule
 {
+    /// <summary>
+    /// Registers the greeting endpoint.
+    /// </summary>
     public void AddRoutes(IEndpointRouteBuilder app) =>
         app.MapGet("/Hello/{name}",
             (HttpContext ctx, string name, AppSettings settings, IHelloRepository repository) =>

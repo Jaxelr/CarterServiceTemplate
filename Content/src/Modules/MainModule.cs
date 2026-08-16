@@ -9,6 +9,9 @@ namespace CarterService.Modules;
 
 public class MainModule : ICarterModule
 {
+    /// <summary>
+    /// Registers the root redirect endpoint.
+    /// </summary>
     public void AddRoutes(IEndpointRouteBuilder app) => app.MapGet("/", (HttpContext ctx, AppSettings app) =>
      {
          ctx.Response.Redirect(app.RouteDefinition.Resource);

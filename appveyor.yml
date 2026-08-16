@@ -20,7 +20,9 @@ build_script:
   - cmd: dotnet build Content/tests/CarterService.Tests.csproj -v quiet
   - cmd: dotnet build . -v quiet
 test_script:
-  - cmd: cd Content && dotnet test --project tests\CarterService.Tests.csproj --configuration Release --verbosity quiet
+  - cmd: |
+      cd Content
+      dotnet test --project tests\CarterService.Tests.csproj --configuration Release --verbosity quiet
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:

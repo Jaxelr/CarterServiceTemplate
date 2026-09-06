@@ -1,4 +1,4 @@
-﻿using Carter;
+using Carter;
 using Carter.OpenApi;
 using CarterService.Entities.Internal;
 using CarterService.Extensions;

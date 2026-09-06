@@ -1,4 +1,4 @@
-﻿namespace CarterService.Repositories;
+namespace CarterService.Repositories;
 
 public class HelloRepository : IHelloRepository
 {

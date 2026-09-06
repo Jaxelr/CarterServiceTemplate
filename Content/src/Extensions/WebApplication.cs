@@ -1,4 +1,4 @@
-﻿using CarterService.Entities.Internal;
+using CarterService.Entities.Internal;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;

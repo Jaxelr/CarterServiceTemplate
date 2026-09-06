@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Carter.Cache;
 using Carter.ModelBinding;

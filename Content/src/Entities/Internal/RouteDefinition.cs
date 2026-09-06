@@ -1,4 +1,4 @@
-﻿namespace CarterService.Entities.Internal;
+namespace CarterService.Entities.Internal;
 
 public record RouteDefinition
 {

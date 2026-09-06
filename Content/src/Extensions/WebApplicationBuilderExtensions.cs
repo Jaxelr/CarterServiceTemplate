@@ -1,4 +1,4 @@
-﻿using Carter;
+using Carter;
 using Carter.Cache;
 using CarterService.Entities.Internal;
 using CarterService.Repositories;

@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Carter;
 using CarterService.Entities.Internal;
 using Microsoft.AspNetCore.Builder;

@@ -17,8 +17,8 @@ jobs:
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: 10.0.x
-    - name: Format Code
-      run: dotnet format analyzers Content/CarterService.sln --verbosity diagnostic
+    - name: Verify formatting
+      run: dotnet format Content/CarterService.sln --verify-no-changes --severity warn
     - name: Build
       run: dotnet build Content/CarterService.sln --configuration Release
     - name: Test
